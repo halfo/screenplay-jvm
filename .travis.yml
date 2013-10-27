@@ -1,0 +1,16 @@
+language: java
+jdk:
+  - oraclejdk6
+
+env:
+  - MAVEN_OPTS="-Xmx2048m"
+
+before_install:
+  - which phantomjs
+  - phantomjs --version
+
+before_script:
+  - git submodule init
+  - git submodule update
+
+script: mvn clean verify
