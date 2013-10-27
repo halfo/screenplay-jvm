@@ -5,22 +5,22 @@ import com.riverglide.screenplay.Memorable;
 import com.riverglide.screenplay.Perform;
 import org.openqa.selenium.By;
 
-public class ReadTheTextOfThe extends WebDriverInteraction implements Perform {
-    private final By elementLocation;
+public class ReadTheTextInThe extends WebDriverInteraction implements Perform {
+    private final By element;
 
     public void performAs(Actor actor) {
         actor.remember(new Memorable<String>(readByThe(actor)));
     }
 
     private String readByThe(Actor actor) {
-        return web(actor).findElement(elementLocation).getText();
+        return web(actor).findElement(element).getText();
     }
 
-    public static Perform readTheTextOfThe(By elementLocation) {
-        return new ReadTheTextOfThe(elementLocation);
+    public static Perform readTheTextInThe(By element) {
+        return new ReadTheTextInThe(element);
     }
 
-    public ReadTheTextOfThe(By elementLocation) {
-        this.elementLocation = elementLocation;
+    public ReadTheTextInThe(By element) {
+        this.element = element;
     }
 }

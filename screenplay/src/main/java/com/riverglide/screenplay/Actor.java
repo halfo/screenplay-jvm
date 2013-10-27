@@ -29,7 +29,7 @@ public class Actor {
         }
     }
 
-    public void should(Perform verification) {
+    public void youShould(Perform verification) {
         attempt(verification);
     }
 

@@ -1,30 +1,21 @@
 package com.riverglide.screenplay.examples.petclinic;
 
 import com.riverglide.screenplay.Actor;
-import com.riverglide.screenplay.examples.petclinic.activity.HaveAPlace;
-import com.riverglide.screenplay.examples.petclinic.activity.Leave;
-import com.riverglide.screenplay.examples.petclinic.activity.Start;
-import com.riverglide.screenplay.examples.petclinic.activity.task.ChooseToFindAnOwner;
-import com.riverglide.screenplay.examples.petclinic.activity.task.SearchWith;
-import com.riverglide.screenplay.examples.petclinic.activity.task.SeeThatTheNumberOfOwnersIs;
-import cucumber.api.PendingException;
+import com.riverglide.screenplay.examples.petclinic.activity.*;
+import com.riverglide.screenplay.examples.petclinic.screen.Welcome;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-import static com.riverglide.screenplay.examples.petclinic.activity.task.ChooseToFindAnOwner.chooseToFindAnOwner;
-import static com.riverglide.screenplay.examples.petclinic.activity.task.SearchWith.searchWith;
-import static com.riverglide.screenplay.examples.petclinic.activity.task.SeeThatTheNumberOfOwnersIs.seeThatTheNumberOfOwnersIs;
-
 public class ReceptionistSteps {
 
-    public static final String BLANK_INFORMATION = "";
+    public static final String EMPTY_SEARCH_TERMS = "";
     private Actor asAReceptionist = PetClinicReceptionist.actor();
 
     @Given("^I have chosen to find owners$")
     public void I_have_chosen_to_find_owners() throws Throwable {
-        asAReceptionist.attemptTo(chooseToFindAnOwner());
+        asAReceptionist.attemptTo(Start.findingAnOwner());
     }
 
     @When("^I start helping a customer$")
@@ -34,17 +25,17 @@ public class ReceptionistSteps {
 
     @Then("^I should have a place to start$")
     public void I_should_have_a_place_to_start() throws Throwable {
-        asAReceptionist.should(HaveAPlace.toStart());
+        asAReceptionist.youShould(HaveAPlace.to());
     }
 
     @When("^I search without providing any details$")
     public void I_search_without_providing_any_details() throws Throwable {
-        asAReceptionist.attemptTo(searchWith(BLANK_INFORMATION));
+        asAReceptionist.attemptTo(SearchFor.ownersWith(EMPTY_SEARCH_TERMS));
     }
 
-    @Then("^I should see all owners$")
-    public void I_should_see_all_owners() throws Throwable {
-        asAReceptionist.should(seeThatTheNumberOfOwnersIs(10));
+    @Then("^I should see all of the owners$")
+    public void I_should_see_all_of_the_owners() throws Throwable {
+        asAReceptionist.youShould(SeeThat.theNumberOfOwnersIs(10));
     }
 
 

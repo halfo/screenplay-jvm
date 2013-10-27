@@ -3,22 +3,24 @@ package com.riverglide.screenplay.examples.petclinic.activity.task;
 import com.riverglide.screenplay.Actor;
 import com.riverglide.screenplay.Ensure;
 import com.riverglide.screenplay.Perform;
-import com.riverglide.screenplay.action.CountTheNumberOf;
+import com.riverglide.screenplay.action.CountThe;
 import com.riverglide.screenplay.action.It;
 import com.riverglide.screenplay.examples.petclinic.screen.Owners;
+import org.openqa.selenium.By;
 
 public class SeeThatTheNumberOfOwnersIs implements Perform {
-    private int expectedNumberOfOwners;
+    public static final By LIST_OF_OWNERS_TABLE = Owners.screen().listOfOwners();
+    private int expected;
 
     public void performAs(Actor asAReceptionist) {
         asAReceptionist.attemptTo(
-                CountTheNumberOf.tableRowsIn(Owners.screen().listOfOwners()),
-                Ensure.that(It.contains(expectedNumberOfOwners))
+                CountThe.numberOfTableRowsInThe(LIST_OF_OWNERS_TABLE),
+                Ensure.that(It.isTheNumber(expected))
         );
     }
 
     public SeeThatTheNumberOfOwnersIs(int expectedNumberOfOwners) {
-        this.expectedNumberOfOwners = expectedNumberOfOwners;
+        this.expected = expectedNumberOfOwners;
     }
 
     public static SeeThatTheNumberOfOwnersIs seeThatTheNumberOfOwnersIs(int expectedNumberOfOwners) {

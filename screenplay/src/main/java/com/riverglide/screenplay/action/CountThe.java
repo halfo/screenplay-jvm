@@ -5,8 +5,8 @@ import org.openqa.selenium.By;
 
 import static com.riverglide.screenplay.action.interaction.webdriver.CountTheNumberOfTableRows.countTheNumberOfTableRows;
 
-public class CountTheNumberOf {
-    public static Perform tableRowsIn(By elementLocation) {
+public class CountThe {
+    public static Perform numberOfTableRowsInThe(By elementLocation) {
         return countTheNumberOfTableRows(elementLocation);
     }
 }

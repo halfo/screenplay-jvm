@@ -4,7 +4,7 @@ import com.riverglide.screenplay.Actor;
 import com.riverglide.screenplay.Perform;
 import org.openqa.selenium.By;
 
-public class Click extends WebDriverInteraction implements Perform {
+public class ClickOnThe extends WebDriverInteraction implements Perform {
 
     private By ofInterest;
 
@@ -12,11 +12,11 @@ public class Click extends WebDriverInteraction implements Perform {
         web(actor).findElement(ofInterest).click();
     }
 
-    public Click(By elementOfInterest) {
+    public ClickOnThe(By elementOfInterest) {
         ofInterest = elementOfInterest;
     }
 
-    public static Click onThe(By elementOfInterest) {
-        return new Click(elementOfInterest);
+    public static ClickOnThe clickOnThe(By elementOfInterest) {
+        return new ClickOnThe(elementOfInterest);
     }
 }
