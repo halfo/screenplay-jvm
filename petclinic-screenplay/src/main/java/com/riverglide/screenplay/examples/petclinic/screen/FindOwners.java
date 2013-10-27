@@ -7,6 +7,7 @@ public class FindOwners implements Screen {
 
     private final String url = "http://localhost:9966/petclinic/owners/find.html";
 
+    public By lastNameField()    { return By.id("lastName"); }
     public By findOwnersButton() { return By.xpath("//*[@id=\"search-owner-form\"]/fieldset/div[2]/button"); }
 
     @Override
