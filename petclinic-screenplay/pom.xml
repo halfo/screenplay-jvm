@@ -81,7 +81,8 @@
                         </goals>
                         <configuration>
                             <includes>
-                                <include>**/Play*.java</include>
+                                <include>**/cucumber/Play*.java</include>
+                                <include>**/junit/*Feature.java</include>
                             </includes>
                         </configuration>
                     </execution>

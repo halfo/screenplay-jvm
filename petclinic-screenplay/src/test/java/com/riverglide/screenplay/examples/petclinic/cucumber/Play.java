@@ -1,4 +1,4 @@
-package com.riverglide.screenplay.examples.petclinic;
+package com.riverglide.screenplay.examples.petclinic.cucumber;
 
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;

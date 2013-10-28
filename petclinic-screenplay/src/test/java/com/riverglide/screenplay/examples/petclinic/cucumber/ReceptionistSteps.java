@@ -1,8 +1,8 @@
-package com.riverglide.screenplay.examples.petclinic;
+package com.riverglide.screenplay.examples.petclinic.cucumber;
 
 import com.riverglide.screenplay.Actor;
+import com.riverglide.screenplay.examples.petclinic.PetClinicReceptionist;
 import com.riverglide.screenplay.examples.petclinic.activity.*;
-import com.riverglide.screenplay.examples.petclinic.screen.Welcome;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
