@@ -2,9 +2,11 @@ package com.riverglide.screenplay.examples.petclinic.junit;
 
 import com.riverglide.screenplay.Actor;
 import com.riverglide.screenplay.examples.petclinic.PetClinicReceptionist;
+import com.riverglide.screenplay.examples.petclinic.activity.Leave;
 import com.riverglide.screenplay.examples.petclinic.activity.SearchFor;
 import com.riverglide.screenplay.examples.petclinic.activity.SeeThat;
 import com.riverglide.screenplay.examples.petclinic.activity.Start;
+import org.junit.After;
 import org.junit.Test;
 
 public class FindingOwnersFeature {
@@ -20,5 +22,10 @@ public class FindingOwnersFeature {
         );
 
         asAReceptionist.youShould(SeeThat.theNumberOfOwnersIs(10));
+    }
+
+    @After
+    public void cleanUp() {
+        asAReceptionist.attemptTo(Leave.theClinic());
     }
 }

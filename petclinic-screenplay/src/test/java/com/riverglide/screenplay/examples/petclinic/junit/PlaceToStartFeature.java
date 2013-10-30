@@ -3,7 +3,9 @@ package com.riverglide.screenplay.examples.petclinic.junit;
 import com.riverglide.screenplay.Actor;
 import com.riverglide.screenplay.examples.petclinic.PetClinicReceptionist;
 import com.riverglide.screenplay.examples.petclinic.activity.HaveAPlace;
+import com.riverglide.screenplay.examples.petclinic.activity.Leave;
 import com.riverglide.screenplay.examples.petclinic.activity.Start;
+import org.junit.After;
 import org.junit.Test;
 
 public class PlaceToStartFeature {
@@ -14,5 +16,10 @@ public class PlaceToStartFeature {
         asAReceptionist.attemptTo(Start.helpingACustomer());
 
         asAReceptionist.youShould(HaveAPlace.to());
+    }
+
+    @After
+    public void cleanUp() {
+        asAReceptionist.attemptTo(Leave.theClinic());
     }
 }
