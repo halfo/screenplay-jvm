@@ -9,17 +9,17 @@ import org.junit.After;
 import org.junit.Test;
 
 public class PlaceToStartFeature {
-    private Actor asAReceptionist = PetClinicReceptionist.actor();
+    private Actor you = PetClinicReceptionist.actor();
 
     @Test
     public void should_have_a_place_to_start() throws Exception {
-        asAReceptionist.attemptTo(Start.helpingACustomer());
+        you.attemptTo(Start.helpingACustomer());
 
-        asAReceptionist.youShould(HaveAPlace.toStart());
+        you.should(HaveAPlace.toStart());
     }
 
     @After
     public void clean_up() {
-        asAReceptionist.attemptTo(Leave.theClinic());
+        you.attemptTo(Leave.theClinic());
     }
 }

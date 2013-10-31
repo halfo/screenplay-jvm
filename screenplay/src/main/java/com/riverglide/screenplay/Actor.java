@@ -15,10 +15,6 @@ public class Actor {
         return this;
     }
 
-    private Ability acquire(Ability toDoSomething) {
-        return abilities.put(toDoSomething.getClass(), toDoSomething);
-    }
-
     public Ability ability(Class ofAbility) {
         return abilities.get(ofAbility);
     }
@@ -33,12 +29,20 @@ public class Actor {
         attempt(verification);
     }
 
+    public void should(Perform verification) {
+        youShould(verification);
+    }
+
     public void remember(Memorable<?> it) {
         this.it = it;
     }
 
     public <T> T getIt() {
         return it.item();
+    }
+
+    private Ability acquire(Ability toDoSomething) {
+        return abilities.put(toDoSomething.getClass(), toDoSomething);
     }
 
     private void attempt(Perform task) {

@@ -35,7 +35,7 @@ public class ReceptionistSteps {
 
     @Then("^I should see all of the owners$")
     public void I_should_see_all_of_the_owners() throws Throwable {
-        asAReceptionist.youShould(SeeThat.theNumberOfOwnersIs(10));
+        asAReceptionist.youShould(See.thatTheNumberOfOwnersIs(10));
     }
 
 

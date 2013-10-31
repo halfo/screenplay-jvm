@@ -4,28 +4,31 @@ import com.riverglide.screenplay.Actor;
 import com.riverglide.screenplay.examples.petclinic.PetClinicReceptionist;
 import com.riverglide.screenplay.examples.petclinic.activity.Leave;
 import com.riverglide.screenplay.examples.petclinic.activity.SearchFor;
-import com.riverglide.screenplay.examples.petclinic.activity.SeeThat;
+import com.riverglide.screenplay.examples.petclinic.activity.See;
 import com.riverglide.screenplay.examples.petclinic.activity.Start;
 import org.junit.After;
 import org.junit.Test;
 
 public class FindingOwnersFeature {
-    private Actor asAReceptionist = PetClinicReceptionist.actor();
-
     public static final String EMPTY_SEARCH_TERMS = "";
+
+    private Actor you = PetClinicReceptionist.actor();
 
     @Test
     public void should_see_all_the_owners_when_no_search_criteria_are_provided() throws Exception {
-        asAReceptionist.attemptTo(
+
+        int theExpectedNumberOfOwners = 10;
+
+        you.attemptTo(
                 Start.findingAnOwner(),
                 SearchFor.ownersUsing(EMPTY_SEARCH_TERMS)
         );
 
-        asAReceptionist.youShould(SeeThat.theNumberOfOwnersIs(10));
+        you.should(See.thatTheNumberOfOwnersIs(theExpectedNumberOfOwners));
     }
 
     @After
     public void clean_up() {
-        asAReceptionist.attemptTo(Leave.theClinic());
+        you.attemptTo(Leave.theClinic());
     }
 }
