@@ -16,7 +16,7 @@ public class CountTheNumberOfTableRows extends WebDriverInteraction implements P
         return web(actor).findElement(elementLocation).findElements(By.tagName("tr")).size();
     }
 
-    public static Perform countTheNumberOfTableRows(By elementLocation) {
+    public static Perform countTheNumberOfTableRowsIn(By elementLocation) {
         return new CountTheNumberOfTableRows(elementLocation);
     }
 

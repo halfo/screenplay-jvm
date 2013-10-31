@@ -18,7 +18,7 @@ public class SearchForOwnersWith implements Perform {
     @Override
     public void performAs(Actor asAReceptionist) {
         asAReceptionist.attemptTo(
-                Enter.the(searchTerms).intoThe(LAST_NAME_FIELD),
+                Enter.the(searchTerms).into(LAST_NAME_FIELD),
                 Click.onThe(FIND_OWNERS_BUTTON)
         );
     }

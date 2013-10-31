@@ -18,14 +18,14 @@ public class FindingOwnersFeature {
     public void should_see_all_the_owners_when_no_search_criteria_are_provided() throws Exception {
         asAReceptionist.attemptTo(
                 Start.findingAnOwner(),
-                SearchFor.ownersWith(EMPTY_SEARCH_TERMS)
+                SearchFor.ownersUsing(EMPTY_SEARCH_TERMS)
         );
 
         asAReceptionist.youShould(SeeThat.theNumberOfOwnersIs(10));
     }
 
     @After
-    public void cleanUp() {
+    public void clean_up() {
         asAReceptionist.attemptTo(Leave.theClinic());
     }
 }

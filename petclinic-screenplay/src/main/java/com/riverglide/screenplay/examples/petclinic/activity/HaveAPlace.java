@@ -6,7 +6,7 @@ import com.riverglide.screenplay.Screen;
 import static com.riverglide.screenplay.examples.petclinic.activity.task.HaveAPlaceToStart.haveAPlaceToStart;
 
 public class HaveAPlace {
-    public static Perform to() {
+    public static Perform toStart() {
         return haveAPlaceToStart();
     }
 }

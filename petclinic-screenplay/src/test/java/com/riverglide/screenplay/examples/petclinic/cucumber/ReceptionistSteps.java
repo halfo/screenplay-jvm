@@ -23,14 +23,14 @@ public class ReceptionistSteps {
         asAReceptionist.attemptTo(Start.helpingACustomer());
     }
 
-    @Then("^I should have a place to start$")
+    @Then("^I should have a place toStart start$")
     public void I_should_have_a_place_to_start() throws Throwable {
-        asAReceptionist.youShould(HaveAPlace.to());
+        asAReceptionist.youShould(HaveAPlace.toStart());
     }
 
     @When("^I search without providing any details$")
     public void I_search_without_providing_any_details() throws Throwable {
-        asAReceptionist.attemptTo(SearchFor.ownersWith(EMPTY_SEARCH_TERMS));
+        asAReceptionist.attemptTo(SearchFor.ownersUsing(EMPTY_SEARCH_TERMS));
     }
 
     @Then("^I should see all of the owners$")

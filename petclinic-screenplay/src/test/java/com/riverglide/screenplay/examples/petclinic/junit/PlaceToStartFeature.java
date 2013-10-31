@@ -15,11 +15,11 @@ public class PlaceToStartFeature {
     public void should_have_a_place_to_start() throws Exception {
         asAReceptionist.attemptTo(Start.helpingACustomer());
 
-        asAReceptionist.youShould(HaveAPlace.to());
+        asAReceptionist.youShould(HaveAPlace.toStart());
     }
 
     @After
-    public void cleanUp() {
+    public void clean_up() {
         asAReceptionist.attemptTo(Leave.theClinic());
     }
 }

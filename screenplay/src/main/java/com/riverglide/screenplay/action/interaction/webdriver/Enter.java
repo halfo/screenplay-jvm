@@ -21,7 +21,7 @@ public class Enter extends WebDriverInteraction implements Perform {
         return new Enter(text);
     }
 
-    public Perform intoThe(By field) {
+    public Perform into(By field) {
         this.field = field;
         return this;
     }

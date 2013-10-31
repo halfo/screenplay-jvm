@@ -4,7 +4,7 @@ import com.riverglide.screenplay.Actor;
 import com.riverglide.screenplay.Ensure;
 import com.riverglide.screenplay.Perform;
 import com.riverglide.screenplay.action.It;
-import com.riverglide.screenplay.action.ReadThe;
+import com.riverglide.screenplay.action.Read;
 import com.riverglide.screenplay.examples.petclinic.screen.Welcome;
 import org.openqa.selenium.By;
 
@@ -14,7 +14,7 @@ public class HaveAPlaceToStart implements Perform {
 
     public void performAs(Actor asAReceptionist) {
         asAReceptionist.attemptTo(
-                ReadThe.textInThe(WELCOME_MESSAGE),
+                Read.theTextInThe(WELCOME_MESSAGE),
                 Ensure.that(It.says("Welcome"))
         );
     }
