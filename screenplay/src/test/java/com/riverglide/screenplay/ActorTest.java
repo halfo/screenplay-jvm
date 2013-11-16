@@ -15,18 +15,30 @@ public class ActorTest {
     public void takes_note_of_an_important_string() throws Exception {
         Actor actor = new Actor();
 
-        actor.takeNoteOf("The Name of the Cafe", "Joe & The Juice");
+        Noteable<String> nameOfTheCafe = new Noteable<String>("Joe & The Juice");
+        actor.takeNoteOf("The Name of the Cafe", nameOfTheCafe);
 
-        assertThat(actor.recalls("The Name of the Cafe"), is("Joe & The Juice"));
+        assertThat(actor.recalls("The Name of the Cafe"), is(nameOfTheCafe.item()));
+    }
+
+    @Test
+    public void takes_note_of_an_important_integer() throws Exception {
+        Actor actor = new Actor();
+
+        Noteable<Integer> amountOfCoffee = new Noteable<Integer>(2);
+
+        actor.takeNoteOf("Amount of Coffee I Drank", amountOfCoffee);
+
+        assertThat(actor.recalls("Amount of Coffee I Drank"), is(amountOfCoffee.item()));
     }
 
     @Test
     public void remembersAnyOldThing() throws Exception {
-        List<Memorable<?>> items = new ArrayList<Memorable<?>>();
-        items.add(new Memorable<Float>(new Float(1.234)));
-        items.add(new Memorable<Boolean>(false));
+        List<Noteable<?>> items = new ArrayList<Noteable<?>>();
+        items.add(new Noteable<Float>(new Float(1.234)));
+        items.add(new Noteable<Boolean>(false));
 
-        for(Memorable<?> remembered : items) {
+        for(Noteable<?> remembered : items) {
             Actor inARole = new Actor();
             inARole.remember(remembered);
 
@@ -39,7 +51,7 @@ public class ActorTest {
     @Test
     public void rememberAString() throws Exception {
         Actor inARole = new Actor();
-        Memorable<String> itemToRemember = new Memorable<String>("Something to remember");
+        Noteable<String> itemToRemember = new Noteable<String>("Something to remember");
 
         inARole.remember(itemToRemember);
 
@@ -49,7 +61,7 @@ public class ActorTest {
     @Test
     public void rememberAnInteger() throws Exception {
         Actor inARole = new Actor();
-        Memorable<Integer> remembered = new Memorable<Integer>(1);
+        Noteable<Integer> remembered = new Noteable<Integer>(1);
 
         inARole.remember(remembered);
 

@@ -1,7 +1,7 @@
 package com.riverglide.screenplay.action.interaction.webdriver;
 
 import com.riverglide.screenplay.Actor;
-import com.riverglide.screenplay.Memorable;
+import com.riverglide.screenplay.Noteable;
 import com.riverglide.screenplay.Perform;
 import org.openqa.selenium.By;
 
@@ -9,7 +9,7 @@ public class CountTheNumberOfTableRows extends WebDriverInteraction implements P
     private final By elementLocation;
 
     public void performAs(Actor actor) {
-        actor.remember(new Memorable<Integer>(numberOfTableRowsSeenBy(actor)));
+        actor.remember(new Noteable<Integer>(numberOfTableRowsSeenBy(actor)));
     }
 
     private Integer numberOfTableRowsSeenBy(Actor actor) {

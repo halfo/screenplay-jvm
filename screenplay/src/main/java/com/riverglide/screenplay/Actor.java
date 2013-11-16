@@ -8,9 +8,9 @@ import java.util.Map;
 public class Actor {
 
     Map<Class,Ability> abilities = new HashMap<Class,Ability>();
-    private Memorable<?> it;
+    private Noteable<?> it;
 
-    private final Map<String,String> notepad = new HashMap<String, String>();
+    private final Map<String,Noteable<?>> notepad = new HashMap<String, Noteable<?>>();
 
     public Actor with(Ability toDoSomething) {
         acquire(theAbility(toDoSomething));
@@ -35,7 +35,15 @@ public class Actor {
         youShould(verification);
     }
 
-    public void remember(Memorable<?> it) {
+    public <T> T recalls(String key) {
+        return notepad.get(key).item();
+    }
+
+    public <ITEM> void takeNoteOf(String key, Noteable<ITEM> value) {
+        notepad.put(key, value);
+    }
+
+    public void remember(Noteable<?> it) {
         this.it = it;
     }
 
@@ -53,13 +61,5 @@ public class Actor {
 
     private Ability theAbility(Ability toBeMadeMoreReadable) {
         return toBeMadeMoreReadable;
-    }
-
-    public String recalls(String s) {
-        return notepad.get(s);
-    }
-
-    public void takeNoteOf(String key, String value) {
-        notepad.put(key, value);
     }
 }

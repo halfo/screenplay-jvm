@@ -1,10 +1,10 @@
 package com.riverglide.screenplay;
 
-public class Memorable<THING> {
+public class Noteable<THING> {
 
     private final THING toRemember;
 
-    public Memorable(THING toRemember) {
+    public Noteable(THING toRemember) {
         this.toRemember = toRemember;
     }
 
