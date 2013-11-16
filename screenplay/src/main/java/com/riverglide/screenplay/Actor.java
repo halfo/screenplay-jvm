@@ -43,10 +43,12 @@ public class Actor {
         notepad.put(key, value);
     }
 
+    @Deprecated
     public void remember(Noteable<?> it) {
         this.it = it;
     }
 
+    @Deprecated
     public <T> T getIt() {
         return it.item();
     }
