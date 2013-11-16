@@ -10,6 +10,8 @@ public class Actor {
     Map<Class,Ability> abilities = new HashMap<Class,Ability>();
     private Memorable<?> it;
 
+    private final Map<String,String> notepad = new HashMap<String, String>();
+
     public Actor with(Ability toDoSomething) {
         acquire(theAbility(toDoSomething));
         return this;
@@ -51,5 +53,13 @@ public class Actor {
 
     private Ability theAbility(Ability toBeMadeMoreReadable) {
         return toBeMadeMoreReadable;
+    }
+
+    public String recalls(String s) {
+        return notepad.get(s);
+    }
+
+    public void takeNoteOf(String key, String value) {
+        notepad.put(key, value);
     }
 }

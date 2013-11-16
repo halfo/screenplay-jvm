@@ -10,6 +10,16 @@ import static org.junit.Assert.assertThat;
 
 public class ActorTest {
 
+
+    @Test
+    public void takes_note_of_an_important_string() throws Exception {
+        Actor actor = new Actor();
+
+        actor.takeNoteOf("The Name of the Cafe", "Joe & The Juice");
+
+        assertThat(actor.recalls("The Name of the Cafe"), is("Joe & The Juice"));
+    }
+
     @Test
     public void remembersAnyOldThing() throws Exception {
         List<Memorable<?>> items = new ArrayList<Memorable<?>>();
